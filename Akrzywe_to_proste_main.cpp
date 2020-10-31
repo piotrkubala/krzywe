@@ -22,7 +22,7 @@ int main()
     do
     {
         std::cout << "--------------------------------\n\tDostepne krzywe:\n\t1. prosta\n\t2. okrag\n\t3. stozkowa\n\t4. cykloida\
-                    \n\t5. ewolwenta\n\t6. lancuchowa\n\t7. epitrochoida\n\t8. parabola\n\t9. klotoida\n--------------------------------\n";
+                    \n\t5. ewolwenta\n\t6. lancuchowa\n\t7. epitrochoida\n\t8. parabola\n\t9. klotoida\n\t10. srubowa\n--------------------------------\n";
         std::cout << "Podaj krzywa: ";
         std::cin >> krzywa;
 
@@ -157,6 +157,33 @@ int main()
             std::cin >> ys;
 
             render(klotoida(a, xs, ys, t0, tk, n), "Klotoida");
+        }
+        else if(krzywa == "srubowa")
+        {
+            double a, k, xs, ys, zs, obrx, obry, obrz;
+            char sr;
+
+            std::cout << "(cos(t) * a, sin(t) * a, k * t)\nPodaj a: ";
+            std::cin >> a;
+            std::cout << "Podaj k: ";
+            std::cin >> k;
+            std::cout << "Podaj xs: ";
+            std::cin >> xs;
+            std::cout << "Podaj ys: ";
+            std::cin >> ys;
+            std::cout << "Podaj zs: ";
+            std::cin >> zs;
+            std::cout << "Podaj kat obrotu wokol osi OX: ";
+            std::cin >> obrx;
+            std::cout << "Podaj kat obrotu wokol osi OY: ";
+            std::cin >> obry;
+            std::cout << "Podaj kat obrotu wokol osi OZ: ";
+            std::cin >> obrz;
+            std::cout << "Czy chcesz uzyc rzutu srodkowego? (t/n): ";
+            std::cin >> sr;
+
+            std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > sruba = linia_srubowa(a, k, xs, ys, zs, obrx, obry, obrz, sr == 't', t0, tk, n);
+            render(sruba.first, "Linia srubowa");
         }
         else
             std::cout << "Ta krzywa jest niedostepna\n";
