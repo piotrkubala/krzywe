@@ -1,7 +1,6 @@
 #include "funkcje.hpp"
 
-#include <iostream>
-using namespace std;
+#define RZUTD 20.0
 
 std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > linia_srubowa(double a, double k, double xs, double ys, double zs, double obrx, double obry, double obrz, bool srodkowy, double t0, double tk, int n)
 {
@@ -41,10 +40,16 @@ std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > linia_srubowa(
         line.push_back(sf::Vertex(sf::Vector2f(obrocony.x, obrocony.y)));
     }
 
+    max_z = abs(max_z);
+
     for(int i = 2; i <= n + 2; i++)
     {
         if(srodkowy)
-            line[i].position /= static_cast <float> (sqrt((punkty[i - 2].z - max_z) * (punkty[i - 2].z - max_z) + punkty[i - 2].x * punkty[i - 2].x + punkty[i - 2].y * punkty[i - 2].y + 400));
+        {
+            double dz = max_z + RZUTD + punkty[i - 2].z;
+            dz *= dz;
+            line[i].position = sf::Vector2f(line[i].position.x * RZUTD / sqrt(line[i].position.y * line[i].position.y + dz), line[i].position.y * RZUTD / sqrt(line[i].position.x * line[i].position.x + dz));
+        }
 
         line[0].position.x = std::min(line[0].position.x, line[i].position.x);
         line[0].position.y = std::min(line[0].position.y, line[i].position.y);
