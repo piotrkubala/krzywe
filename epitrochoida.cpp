@@ -1,9 +1,12 @@
 #include "funkcje.hpp"
 
+#include <iostream>
+using namespace std;
+
 std::vector <sf::Vertex> epitrochoida(double R, double r, double h, double xs, double ys, double t0, double tk, int n)
 {
     std::vector <sf::Vertex> line;
-    float dt = (tk - t0) / n, t;
+    double dt = (tk - t0) / n, t;
     double sumaR = R + r, sumaRpr = (R + r) / r;
 
     line.push_back(sf::Vertex(sf::Vector2f(sumaR * cos(t0) - h * cos(sumaRpr * t0) + xs, sumaR * sin(t0) - h * sin(sumaRpr * t0) + ys)));
