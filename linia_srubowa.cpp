@@ -46,7 +46,7 @@ std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > linia_srubowa(
     {
         if(srodkowy)
         {
-            double dz = max_z + RZUTD + punkty[i - 2].z;
+            double dz = max_z + RZUTD * 2.0 + punkty[i - 2].z;
             dz *= dz;
             line[i].position = sf::Vector2f(line[i].position.x * RZUTD / sqrt(line[i].position.y * line[i].position.y + dz), line[i].position.y * RZUTD / sqrt(line[i].position.x * line[i].position.x + dz));
         }

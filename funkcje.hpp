@@ -24,7 +24,7 @@ std::vector <sf::Vertex> ewolwenta(double, double, double, double, double, int);
 // powierzchnie
 std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > linia_srubowa(double, double, double, double, double, double, double, double, bool, double, double, int);
 std::pair<double, double> parabola_eliptyczna(double , double , double );
-std::pair<double, double> parabola_hiperboliczna(double , double , double );
+std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > parabola_hiperboliczna(double, double, double, double, double, double, double, double, bool, double, double, double, double, int);
 std::pair<double, double> paraboloida_obrotowa(double , double , double );
 std::pair<double, double> hiperboloida_obrotowa(double , double , double );
 
