@@ -1,8 +1,8 @@
 CPP = g++ -O3
 SFML = E:/BibliotekiC++/DoMinGW_64BIT_nowe/SFML2_5_1
 
-prosteToKrzywe.exe: klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
-	$(CPP) -L $(SFML)/lib/* -o prosteToKrzywe.exe klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
+OFSKI.exe: klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
+	$(CPP) -L $(SFML)/lib/* -o OFSKI.exe klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
 
 cykloida.a: cykloida.cpp funkcje.hpp
 	$(CPP) -I $(SFML)/include -c -o cykloida.a cykloida.cpp
@@ -46,8 +46,8 @@ paraboloida_obrotowa.a: parabola.cpp funkcje.hpp
 prosta.a: prosta.cpp funkcje.hpp
 	$(CPP) -I $(SFML)/include -c -o prosta.a prosta.cpp
 
-main.a: Akrzywe_to_proste_main.cpp funkcje.hpp
-	$(CPP) -I $(SFML)/include -c -o main.a Akrzywe_to_proste_main.cpp
+main.a: main.cpp funkcje.hpp
+	$(CPP) -I $(SFML)/include -c -o main.a main.cpp
 
 clean:
 	DEL *.a

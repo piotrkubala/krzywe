@@ -35,7 +35,7 @@ int main()
             
             rodzaj = 1;
 
-            std::cout << "(a * t0 + c, b * t0 + c)\n";
+            std::cout << "(a * t + c, b * t + c)\n";
 
             std::cout << "Podaj poczatkowe t: ";
             std::cin >> t0;
@@ -438,6 +438,6 @@ void transform(std::vector <sf::Vertex> &fig, float x, float y)
     {
         fig[i].position -= srodek;
         fig[i].position *= -WSPOLCZYNNIK_SKALOWANIA * min_wsp;
-        fig[i].position.y *= -1;
+        fig[i].position.x *= -1;
     }
 }
