@@ -24,25 +24,27 @@ int main()
 
     do
     {
-        std::cout << "--------------------------------\n\tDostepne krzywe:\n\t1. prosta\n\t2. okrag\n\t3. stozkowa\n\t4. cykloida\
-                    \n\t5. ewolwenta\n\t6. lancuchowa\n\t7. epitrochoida\n\t8. parabola\n\t9. klotoida\n\t10. srubowa\n--------------------------------\n";
+        std::cout << "--------------------------------\n\tDostepne krzywe:\n\t1. [prosta]\n\t2. [okrag]\n\t3. krzywa [stozkowa]\n\t4. [cykloida]\
+                    \n\t5. [ewolwenta]\n\t6. krzywa [lancuchowa]\n\t7. [epitrochoida]\n\t8. [parabola]\n\t9. [klotoida]\n\t10. linia [srubowa]\n--------------------------------\n";
         std::cout << "Podaj krzywa: ";
         std::cin >> krzywa;
 
-        std::cout << "Podaj poczatkowe t: ";
-        std::cin >> t0;
-        std::cout << "Podaj koncowe t: ";
-        std::cin >> tk;
-        std::cout << "Podaj ilosc punktow: ";
-        std::cin >> n;
-
-        if(krzywa == "prosta")
+        if(krzywa == "prosta" || krzywa == "1")
         {
             double a, b, c;
             
             rodzaj = 1;
 
-            std::cout << "(a * t0 + c, b * t0 + c)\nPodaj a: ";
+            std::cout << "(a * t0 + c, b * t0 + c)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj b: ";
             std::cin >> b;
@@ -52,13 +54,22 @@ int main()
             punkty = prosta(a, b, c, t0, tk, n);
             render(punkty, "Prosta");
         }
-        else if(krzywa == "okrag")
+        else if(krzywa == "okrag" || krzywa == "2")
         {
             double r, xs, ys;
             
             rodzaj = 1;
 
-            std::cout << "(cos(t) * r + xs, sin(t) * r + ys)\nPodaj r: ";
+            std::cout << "(cos(t) * r + xs, sin(t) * r + ys)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj r: ";
             std::cin >> r;
             std::cout << "Podaj xs: ";
             std::cin >> xs;
@@ -68,13 +79,22 @@ int main()
             punkty = okrag(r, xs, ys, t0, tk, n);
             render(punkty, "Okrag");
         }
-        else if(krzywa == "stozkowa")
+        else if(krzywa == "stozkowa" || krzywa == "3")
         {
             double p, e, q, xs, ys;
 
             rodzaj = 1;
 
-            std::cout << "(cos(t) * p / (1 + e * cos(t + q)) + xs, sin(t) * p / (1 + e * cos(t + q)) + ys)\nPodaj p: ";
+            std::cout << "(cos(t) * p / (1 + e * cos(t + q)) + xs, sin(t) * p / (1 + e * cos(t + q)) + ys)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj p: ";
             std::cin >> p;
             std::cout << "Podaj e: ";
             std::cin >> e;
@@ -88,13 +108,22 @@ int main()
             punkty = krzywa_stozkowa(p, e, q, xs, ys, t0, tk, n);
             render(punkty, "Krzywa stozkowa");
         }
-        else if(krzywa == "cykloida")
+        else if(krzywa == "cykloida" || krzywa == "4")
         {
             double r, xs, ys;
             
             rodzaj = 1;
 
-            std::cout << "(r * (t - sin(t)) + xs, r * (1 - cos(t) + ys))\nPodaj r: ";
+            std::cout << "(r * (t - sin(t)) + xs, r * (1 - cos(t) + ys))\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj r: ";
             std::cin >> r;
             std::cout << "Podaj xs: ";
             std::cin >> xs;
@@ -104,13 +133,22 @@ int main()
             punkty = cykloida(r, xs, ys, t0 * M_PI, tk * M_PI, n);
             render(punkty, "Cykloida");
         }
-        else if(krzywa == "ewolwenta")
+        else if(krzywa == "ewolwenta" || krzywa == "5")
         {
             double r, xs, ys;
 
             rodzaj = 1;
 
-            std::cout << "(r * (cos(t) + t * sin(t)) + xs, r * (sin(t) - t * cos(t)) + ys)\nPodaj r: ";
+            std::cout << "(r * (cos(t) + t * sin(t)) + xs, r * (sin(t) - t * cos(t)) + ys)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj r: ";
             std::cin >> r;
             std::cout << "Podaj xs: ";
             std::cin >> xs;
@@ -119,13 +157,22 @@ int main()
 
             render(ewolwenta(r, xs, ys, t0, tk, n), "Ewolwenta");
         }
-        else if(krzywa == "lancuchowa")
+        else if(krzywa == "lancuchowa" || krzywa == "6")
         {
             double a, xs, ys;
             
             rodzaj = 1;
 
-            std::cout << "(t, a * cosh(t / a))\nPodaj a: ";
+            std::cout << "(t, a * cosh(t / a))\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj xs: ";
             std::cin >> xs;
@@ -135,13 +182,22 @@ int main()
             punkty = krzywa_lancuchowa(a, xs, ys, t0, tk, n);
             render(punkty, "Lancuchowa");
         }
-        else if(krzywa == "epitrochoida")
+        else if(krzywa == "epitrochoida" || krzywa == "7")
         {
             double R, r, h, xs, ys;
 
             rodzaj = 1;
 
-            std::cout << "((R + r) * cos(t) - h * cos((R + r) / r * t) + xs, (R + r) * sin(t) - h * sin((R + r) / r * t) + ys)\nPodaj R: ";
+            std::cout << "((R + r) * cos(t) - h * cos((R + r) / r * t) + xs, (R + r) * sin(t) - h * sin((R + r) / r * t) + ys)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj R: ";
             std::cin >> R;
             std::cout << "Podaj r: ";
             std::cin >> r;
@@ -155,13 +211,22 @@ int main()
             punkty = epitrochoida(R, r, h, xs, ys, t0, tk, n);
             render(punkty, "Epitrochoida");
         }
-        else if(krzywa == "parabola")
+        else if(krzywa == "parabola" || krzywa == "8")
         {
             double a, b, c;
             
             rodzaj = 1;
 
-            std::cout << "(t, (a * t + b) * t + c)\nPodaj a: ";
+            std::cout << "(t, (a * t + b) * t + c)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj b: ";
             std::cin >> b;
@@ -171,13 +236,22 @@ int main()
             punkty = parabola(a, b, c, t0, tk, n);
             render(punkty, "Parabola");
         }
-        else if(krzywa == "klotoida")
+        else if(krzywa == "klotoida" || krzywa == "9")
         {
             double a, xs, ys;
 
             rodzaj = 1;
 
-            std::cout << "(fresnel_cos(t) * a + xs, fresnel_sin(t) * a + ys)\nPodaj a: ";
+            std::cout << "(fresnel_cos(t) * a + xs, fresnel_sin(t) * a + ys)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj xs: ";
             std::cin >> xs;
@@ -186,14 +260,23 @@ int main()
             punkty = klotoida(a, xs, ys, t0, tk, n);
             render(punkty, "Klotoida");
         }
-        else if(krzywa == "srubowa")
+        else if(krzywa == "srubowa" || krzywa == "10")
         {
             double a, k, xs, ys, zs, obrx, obry, obrz;
             char sr;
 
             rodzaj = 2;
 
-            std::cout << "(cos(t) * a, sin(t) * a, k * t)\nPodaj a: ";
+            std::cout << "(cos(t) * a, sin(t) * a, k * t)\n";
+
+            std::cout << "Podaj poczatkowe t: ";
+            std::cin >> t0;
+            std::cout << "Podaj koncowe t: ";
+            std::cin >> tk;
+            std::cout << "Podaj ilosc punktow: ";
+            std::cin >> n;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj k: ";
             std::cin >> k;
@@ -217,14 +300,25 @@ int main()
             punkty3D = sruba.second;
             render(sruba.first, "Linia srubowa");
         }
-        else if (krzywa == "hiperboliczna")
+        else if (krzywa == "hiperboliczna" || krzywa == "11")
         {
             double a, b, xs, ys, zs, obrx, obry, obrz, x0, y0, xk, yk;
             char sr;
 
             rodzaj = 2;
 
-            std::cout << "(tx, ty, (tx / a) * (tx / a) - (ty / b) * (ty / b))\nPodaj a: ";
+            std::cout << "(tx, ty, (tx / a) * (tx / a) - (ty / b) * (ty / b))\n";
+
+            std::cout << "Podaj x0: ";
+            std::cin >> x0;
+            std::cout << "Podaj y0: ";
+            std::cin >> y0;
+            std::cout << "Podaj xk: ";
+            std::cin >> xk;
+            std::cout << "Podaj yk: ";
+            std::cin >> yk;
+
+            std::cout << "Podaj a: ";
             std::cin >> a;
             std::cout << "Podaj b: ";
             std::cin >> b;
@@ -242,14 +336,6 @@ int main()
             std::cin >> obrz;
             std::cout << "Czy chcesz uzyc rzutu srodkowego? (t/n): ";
             std::cin >> sr;
-            std::cout << "Podaj x0: ";
-            std::cin >> x0;
-            std::cout << "Podaj y0: ";
-            std::cin >> y0;
-            std::cout << "Podaj xk: ";
-            std::cin >> xk;
-            std::cout << "Podaj yk: ";
-            std::cin >> yk;
 
             std::pair <std::vector <sf::Vertex>, std::vector <sf::Vector3f> > parabole = parabola_hiperboliczna(a, b, xs, ys, zs, obrx, obry, obrz, sr == 't', x0, y0, xk, yk, n);
             
@@ -352,5 +438,6 @@ void transform(std::vector <sf::Vertex> &fig, float x, float y)
     {
         fig[i].position -= srodek;
         fig[i].position *= -WSPOLCZYNNIK_SKALOWANIA * min_wsp;
+        fig[i].position.y *= -1;
     }
 }
