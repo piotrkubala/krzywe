@@ -1,8 +1,8 @@
 CPP = g++ -O3
 SFML = E:/BibliotekiC++/DoMinGW_64BIT_nowe/SFML2_5_1
 
-OFSKI.exe: klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
-	$(CPP) -L $(SFML)/lib/* -o OFSKI.exe klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
+OWSKI.exe: klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
+	$(CPP) -L $(SFML)/lib/* -o OWSKI.exe klotoida.a cykloida.a epitrochoida.a ewolwenta.a hiperboloida_obrotowa.a krzywa_lancuchowa.a krzywa_stozkowa.a linia_srubowa.a okrag.a parabola_eliptyczna.a parabola_hiperboliczna.a parabola.a paraboloida_obrotowa.a prosta.a main.a
 
 cykloida.a: cykloida.cpp funkcje.hpp
 	$(CPP) -I $(SFML)/include -c -o cykloida.a cykloida.cpp
